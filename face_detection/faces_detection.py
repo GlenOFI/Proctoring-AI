@@ -1,10 +1,10 @@
-from mtcnn.mtcnn import MTCNN
+# from mtcnn.mtcnn import MTCNN
 import cv2
 import dlib
 import numpy as np
 import os
 		
-detector1 = MTCNN()
+# detector1 = MTCNN()
 detector2 = dlib.get_frontal_face_detector()
 modelFile = "models/res10_300x300_ssd_iter_140000.caffemodel"
 configFile = "models/deploy.prototxt.txt"
@@ -27,7 +27,7 @@ for image in images:
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     # detect faces in the image
-    faces1 = detector1.detect_faces(img_rgb)
+    # faces1 = detector1.detect_faces(img_rgb)
     
     faces2 = detector2(gray, 2)
     blob = cv2.dnn.blobFromImage(cv2.resize(img, (300, 300)),
@@ -37,10 +37,10 @@ for image in images:
     faces4 = classifier2.detectMultiScale(img)
     
     #MTCNN
-    for result in faces1:
-        x, y, w, h = result['box']
-        x1, y1 = x + w, y + h
-        cv2.rectangle(img, (x, y), (x1, y1), (0, 0, 255), 2)
+    # for result in faces1:
+    #     x, y, w, h = result['box']
+    #     x1, y1 = x + w, y + h
+    #     cv2.rectangle(img, (x, y), (x1, y1), (0, 0, 255), 2)
     #DLIB    
     for result in faces2:
         x = result.left()
@@ -66,7 +66,7 @@ for image in images:
     # cv2.imwrite(os.path.join('faces', 'dlib', image), img1)
     # cv2.imwrite(os.path.join('faces', 'dnn', image), img2)
     # cv2.imwrite(os.path.join('faces', 'haar', image), img3)
-    cv2.imshow("mtcnn", img)
+    # cv2.imshow("mtcnn", img)
     cv2.imshow("dlib", img1)
     cv2.imshow("dnn", img2)
     cv2.imshow("haar", img3)
