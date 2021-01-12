@@ -18,6 +18,10 @@ images = os.listdir('faces')
 # os.makedirs('faces/haar')
 
 for image in images:
+    # Do not process non-images
+    if "jpg" not in image:
+        continue
+
     img = cv2.imread(os.path.join('faces', image))
     # img = cv2.resize(img, None, fx=2, fy=2)
     height, width = img.shape[:2]
