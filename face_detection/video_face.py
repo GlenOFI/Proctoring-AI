@@ -61,7 +61,8 @@ while(True):
             if confidence > 0.5:
                 box = faces3[0, 0, i, 3:7] * np.array([width, height, width, height])
                 (x, y, x1, y1) = box.astype("int")
-                cv2.rectangle(img2, (x, y), (x1, y1), (0, 0, 255), 2)
+                # cv2.rectangle(img2, (x, y), (x1, y1), (0, 0, 255), 2)
+                cv2.rectangle(img2, (x, y), (x1, y1), (0, 0, 255), -1)
 
         cv2.putText(img2, 'dnn', (30, 30), font, 1, (255, 255, 0), 2, cv2.LINE_AA)
                 
