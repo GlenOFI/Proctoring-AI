@@ -9,7 +9,7 @@ import dlib
 import numpy as np
 
 # Use a file on your computer:
-# cap = cv2.VideoCapture('video/occlusion.mp4')
+# videoCapture = cv2.VideoCapture('video/occlusion.mp4')
 
 # Or use a web cam:
 videoCapture = cv2.VideoCapture(0)
