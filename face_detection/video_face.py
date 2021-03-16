@@ -9,10 +9,10 @@ import dlib
 import numpy as np
 
 # Use a file on your computer:
-# videoCapture = cv2.VideoCapture('video/occlusion.mp4')
+videoCapture = cv2.VideoCapture('video/clinton.mp4')
 
 # Or use a web cam:
-videoCapture = cv2.VideoCapture(0)
+# videoCapture = cv2.VideoCapture(0)
 
 # Initialise three separate models
 # dlib
